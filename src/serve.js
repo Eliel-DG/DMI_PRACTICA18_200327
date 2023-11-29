@@ -25,6 +25,17 @@ const importarDatos = async () => {
     }
 }
 
+const eliminarDatos = async () =>{
+    try{
+        await db.sync({ force: true})
+        console.log('Datos elimanado correctamente')
+        exit()
+    }catch (error){
+        console.log(error)
+        exit(1)
+    }
+}
+
 const api = new express();
 const port = 20032;
 
