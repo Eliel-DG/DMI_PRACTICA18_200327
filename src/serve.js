@@ -1,47 +1,7 @@
-import { exit } from "process";
 import express from "express";
 import {dbConnection1} from "./config/db.js";
 import { router } from "./routes/playerRoute.js";
 import {Player, Game} from "./models/relationships.js";
-import players from "./seed/players.js";
-import games from "./seed/games.js";
-
-const importarDatos = async () => {
-    try{
-        await db.authenticate()
-
-        await db.sync()
-
-        await Promise.all([
-            Player.bulkCreate(players),
-            games.bulkCreate(games),
-        ])
-
-        console.log('Datos importados correctamente')
-        exit()
-    } catch (error){
-        console.log(error)
-        exit(1)
-    }
-}
-
-const eliminarDatos = async () =>{
-    try{
-        await db.sync({ force: true})
-        console.log('Datos elimanado correctamente')
-        exit()
-    }catch (error){
-        console.log(error)
-        exit(1)
-    }
-}
-
-if (process.argv[2] === "-1"){
-    importarDatos();
-}
-if (process.argv[2] === "-e"){
-    eliminarDatos();
-}
 
 const api = new express();
 const port = 20032;

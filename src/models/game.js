@@ -7,11 +7,11 @@ const Game = dbConnection1.define("game", {
         allowNull: false
     },
     startAt: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: DataTypes.NOW, // Establece el valor predeterminado como la fecha y hora actual
+        defaultValue: DataTypes.NOW,
     },
-    endsAt: DataTypes.DATE,
+    endsAt: DataTypes.STRING,
 
     score: {
         type: DataTypes.INTEGER,
@@ -20,7 +20,8 @@ const Game = dbConnection1.define("game", {
     },
     duration: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true, // Permite que la columna sea nula
+        defaultValue: null, // Establece el valor predeterminado como null
     }
 });
 
