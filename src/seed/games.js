@@ -1,4 +1,4 @@
-const players = [
+const games = [
     {
         PlayerID: generateRandom(1,10),
         title: "game: 0, level: 0",

@@ -1,3 +1,4 @@
+import { exit } from "process";
 import express from "express";
 import {dbConnection1} from "./config/db.js";
 import { router } from "./routes/playerRoute.js";
