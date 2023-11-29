@@ -3,6 +3,27 @@ import express from "express";
 import {dbConnection1} from "./config/db.js";
 import { router } from "./routes/playerRoute.js";
 import {Player, Game} from "./models/relationships.js";
+import players from "./seed/players.js";
+import games from "./seed/games.js";
+
+const importarDatos = async () => {
+    try{
+        await db.authenticate()
+
+        await db.sync()
+
+        await Promise.all([
+            Player.bulkCreate(players),
+            games.bulkCreate(games),
+        ])
+
+        console.log('Datos importados correctamente')
+        exit()
+    } catch (error){
+        console.log(error)
+        exit(1)
+    }
+}
 
 const api = new express();
 const port = 20032;
