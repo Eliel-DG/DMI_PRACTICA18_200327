@@ -36,6 +36,13 @@ const eliminarDatos = async () =>{
     }
 }
 
+if (process.argv[2] === "-1"){
+    importarDatos();
+}
+if (process.argv[2] === "-e"){
+    eliminarDatos();
+}
+
 const api = new express();
 const port = 20032;
 
