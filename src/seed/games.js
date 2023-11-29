@@ -1,24 +1,43 @@
 const players = [
     {
         PlayerID: generateRandom(1,10),
-        title: "starchy9295@outlook.com",
+        title: "game: 0, level: 0",
         startAT:  Date.now(),
-        endsAt: Date.now() + generateRandom(5000,300000)
-
-
+        endsAt: Date.now() + generateRandom(5000,300000),
+        score: generateRandom(0, 1000000)
     },
     {
+        PlayerID: generateRandom(1,10),
+        title: "game: 0, level: 0",
+        startAT:  Date.now(),
+        endsAt: Date.now() + generateRandom(5000,300000),
+        score: generateRandom(0, 1000000)
     },
-    
+    {
+        PlayerID: generateRandom(1,10),
+        title: "game: 0, level: 0",
+        startAT:  Date.now(),
+        endsAt: Date.now() + generateRandom(5000,300000),
+        score: generateRandom(0, 1000000)
+    },
+    {
+        PlayerID: generateRandom(1,10),
+        title: "game: 0, level: 0",
+        startAT:  Date.now(),
+        endsAt: Date.now() + generateRandom(5000,300000),
+        score: generateRandom(0, 1000000)
+    },
 ]
 
 function generateRandom(min = 0, max = 100){
     let diference = max -min;
 
-    let rend = Math.random();
+    let rand = Math.random();
 
-    rend = Math.floor( rand * diference)
+    rand = Math.floor( rand * diference)
 
-    rend = rend + min
+    rand = rand + min;
+
+    return rand;
 }
-export default players
+export default games
